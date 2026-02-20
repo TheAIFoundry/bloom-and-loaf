@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom &amp; Loaf | Artisan Sourdough &middot; Small Batch</title>
+    <meta name="description" content="Bloom &amp; Loaf - Artisan sourdough, small batch. Baked with love &amp; wild culture. Naturally fermented sourdough bread and bagels.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-deep: #3b5438;
+            --green-mid: #4a6741;
+            --green-light: #6b8a5e;
+            --cream: #faf6ee;
+            --cream-dark: #f0e9da;
+            --gold: #c5a55a;
+            --gold-light: #d4bc7c;
+            --brown-dark: #3a3020;
+            --brown-text: #5a4d3a;
+            --tan-bg: #c9bc9f;
+            --warm-white: #fdfcf8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            color: var(--brown-dark);
+            background-color: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── Hero Section ─── */
+        .hero {
+            background-color: var(--green-deep);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            opacity: 0.06;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 C55 25, 70 30, 85 25 C75 35, 70 50, 75 65 C60 55, 50 50, 50 50 C50 50, 40 55, 25 65 C30 50, 25 35, 15 25 C30 30, 45 25, 50 10Z' fill='%23ffffff'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+        }
+
+        .hero::before {
+            top: -50px;
+            left: -80px;
+            transform: rotate(-25deg);
+        }
+
+        .hero::after {
+            bottom: -50px;
+            right: -80px;
+            transform: rotate(155deg);
+        }
+
+        .hero-botanical {
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+
+        .hero-botanical svg {
+            width: 120px;
+            height: auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 400;
+            color: var(--cream);
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero h1 .ampersand {
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.8rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle .dot {
+            margin: 0 0.8em;
+            opacity: 0.6;
+        }
+
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--gold-light);
+            opacity: 0.9;
+        }
+
+        /* ─── Decorative Divider ─── */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .divider-line {
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.4;
+        }
+
+        .divider-leaf {
+            margin: 0 1rem;
+            opacity: 0.5;
+        }
+
+        /* ─── Section Styles ─── */
+        .section {
+            padding: 5rem 1.5rem;
+        }
+
+        .section-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+            text-align: center;
+            color: var(--green-deep);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .section-lead {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            font-weight: 300;
+            text-align: center;
+            color: var(--green-mid);
+            margin-bottom: 3rem;
+        }
+
+        /* ─── Why Sourdough ─── */
+        .why-sourdough {
+            background-color: var(--cream);
+        }
+
+        .content-block {
+            margin-bottom: 3rem;
+        }
+
+        .content-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--green-deep);
+            margin-bottom: 0.8rem;
+        }
+
+        .content-block p {
+            font-size: 1.15rem;
+            color: var(--brown-text);
+            line-height: 1.8;
+        }
+
+        .ingredient-intro {
+            font-size: 1.15rem;
+            color: var(--brown-text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .ingredient-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .ingredient-list li {
+            font-size: 1.1rem;
+            color: var(--brown-text);
+            padding: 0.2rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .ingredient-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .highlight-text {
+            font-style: italic;
+            color: var(--green-mid);
+        }
+
+        /* ─── Products Section ─── */
+        .products {
+            background-color: var(--cream-dark);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .product-card {
+            background: var(--warm-white);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            opacity: 0.04;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 C55 25, 70 30, 85 25 C75 35, 70 50, 75 65 C60 55, 50 50, 50 50 C50 50, 40 55, 25 65 C30 50, 25 35, 15 25 C30 30, 45 25, 50 10Z' fill='%233b5438'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+        }
+
+        .product-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--green-deep);
+            margin-bottom: 0.3rem;
+            font-style: italic;
+        }
+
+        .product-card .label {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .product-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-card li {
+            font-size: 1rem;
+            color: var(--brown-text);
+            padding: 0.25rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .product-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .product-card .freshness {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--green-light);
+            border-top: 1px solid var(--cream-dark);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ─── More Than Bread ─── */
+        .ethos {
+            background-color: var(--green-deep);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ethos::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 400px;
+            opacity: 0.03;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='white' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+        }
+
+        .ethos .section-title {
+            color: var(--cream);
+        }
+
+        .ethos p {
+            font-size: 1.2rem;
+            color: var(--cream);
+            opacity: 0.85;
+            line-height: 2;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .ethos .poetic-line {
+            display: block;
+        }
+
+        .ethos .closing {
+            margin-top: 2rem;
+            font-style: italic;
+            color: var(--gold-light);
+            opacity: 0.9;
+            font-size: 1.15rem;
+        }
+
+        /* ─── About Section ─── */
+        .about {
+            background-color: var(--cream);
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(58, 48, 32, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--green-deep);
+            margin-bottom: 0.3rem;
+        }
+
+        .about-text .about-role {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--brown-text);
+            line-height: 1.85;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 700px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image {
+                max-width: 260px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ─── Footer / Contact ─── */
+        .footer {
+            background: var(--cream-dark);
+            text-align: center;
+            padding: 4rem 1.5rem 3rem;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--green-deep);
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-brand .ampersand {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .footer-tagline {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--brown-text);
+            opacity: 0.6;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-links a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--green-mid);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copy {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--brown-text);
+            opacity: 0.4;
+        }
+
+        /* ─── Scroll Dividers ─── */
+        .section-break {
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                var(--gold) 30%,
+                var(--gold) 70%,
+                transparent
+            );
+            opacity: 0.2;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        /* ─── Scroll Arrow ─── */
+        .scroll-arrow {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            animation: bounce 2s ease infinite;
+            z-index: 2;
+        }
+
+        .scroll-arrow span {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--cream);
+            opacity: 0.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .scroll-arrow svg {
+            width: 24px;
+            height: 24px;
+            opacity: 0.5;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        /* ─── Full-Width Image Banners ─── */
+        .image-banner {
+            width: 100%;
+            height: 45vh;
+            min-height: 280px;
+            max-height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-banner-short {
+            height: 35vh;
+            min-height: 220px;
+            max-height: 380px;
+        }
+
+        /* ─── Inline Content Image ─── */
+        .content-image {
+            margin: 2.5rem auto;
+            max-width: 720px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .content-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ─── Photo Credit ─── */
+        .photo-credit {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 300;
+            font-size: 0.55rem;
+            letter-spacing: 0.1em;
+            text-align: right;
+            padding: 0.3rem 0.8rem;
+            color: var(--brown-text);
+            opacity: 0.3;
+        }
+
+        .photo-credit a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .photo-credit a:hover {
+            opacity: 0.6;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 480px) {
+            .section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .content-block h3 {
+                font-size: 1.3rem;
+            }
+
+            .content-block p,
+            .ingredient-intro {
+                font-size: 1.05rem;
+            }
+
+            .product-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════ Hero ═══════ -->
+    <header class="hero">
+        <div class="hero-botanical">
+            <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Leaves -->
+                <path d="M60 45 C55 35, 42 28, 28 30 C38 35, 45 42, 50 50 C48 46, 52 42, 60 45Z" fill="#8aaa7a" opacity="0.7"/>
+                <path d="M60 45 C65 35, 78 28, 92 30 C82 35, 75 42, 70 50 C72 46, 68 42, 60 45Z" fill="#8aaa7a" opacity="0.7"/>
+                <path d="M60 50 C56 42, 46 34, 35 33 C43 38, 48 44, 53 52 C51 47, 54 44, 60 50Z" fill="#6b8a5e" opacity="0.5"/>
+                <path d="M60 50 C64 42, 74 34, 85 33 C77 38, 72 44, 67 52 C69 47, 66 44, 60 50Z" fill="#6b8a5e" opacity="0.5"/>
+                <!-- Stem -->
+                <line x1="60" y1="45" x2="60" y2="70" stroke="#8aaa7a" stroke-width="0.8" opacity="0.5"/>
+                <!-- Small horizontal branches -->
+                <line x1="48" y1="55" x2="72" y2="55" stroke="#8aaa7a" stroke-width="0.5" opacity="0.3"/>
+                <!-- Flowers -->
+                <circle cx="46" cy="22" r="3" fill="#c5a55a" opacity="0.8"/>
+                <circle cx="46" cy="22" r="1.2" fill="#d4bc7c" opacity="0.9"/>
+                <circle cx="74" cy="22" r="3" fill="#faf6ee" opacity="0.7"/>
+                <circle cx="74" cy="22" r="1.2" fill="#fdfcf8" opacity="0.9"/>
+                <!-- Tiny accent petals -->
+                <circle cx="43" cy="19" r="1" fill="#c5a55a" opacity="0.4"/>
+                <circle cx="49" cy="19" r="1" fill="#c5a55a" opacity="0.4"/>
+                <circle cx="71" cy="19" r="1" fill="#faf6ee" opacity="0.3"/>
+                <circle cx="77" cy="19" r="1" fill="#faf6ee" opacity="0.3"/>
+            </svg>
+        </div>
+        <h1>Bloom <span class="ampersand">&amp;</span> Loaf</h1>
+        <p class="hero-subtitle">Artisan Sourdough<span class="dot">&middot;</span>Small Batch</p>
+        <p class="hero-tagline">Baked with love &amp; wild culture</p>
+        <a href="#why" class="scroll-arrow" aria-label="Scroll down">
+            <span>Discover</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#faf6ee" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </a>
+    </header>
+
+    <!-- ═══════ Image Banner ═══════ -->
+    <div class="image-banner">
+        <img src="https://images.unsplash.com/photo-1585478259715-876a6a81fc08?w=1400&q=80&fit=crop&crop=center" alt="Freshly sliced artisan sourdough bread on a wooden cutting board" loading="lazy">
+    </div>
+
+    <!-- ═══════ Why Sourdough ═══════ -->
+    <section id="why" class="section why-sourdough">
+        <div class="section-inner">
+            <h2 class="section-title">Why Choose Sourdough?</h2>
+            <p class="section-lead">Naturally Fermented. Better for You.</p>
+
+            <div class="content-block">
+                <p class="ingredient-intro">Our sourdough is made the traditional way &mdash; with a natural starter, long fermentation, and only three simple ingredients: flour, water, and salt.</p>
+                <ul class="ingredient-list">
+                    <li>No commercial yeast</li>
+                    <li>No preservatives</li>
+                    <li>No additives</li>
+                </ul>
+                <p class="highlight-text">Just time and craft.</p>
+            </div>
+
+            <div class="divider">
+                <span class="divider-line"></span>
+                <span class="divider-leaf">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 2 C9 5, 12 6, 14 5 C12 7, 11 9, 12 11 C10 9, 8 8, 8 8 C8 8, 6 9, 4 11 C5 9, 4 7, 2 5 C4 6, 7 5, 8 2Z" fill="#c5a55a" opacity="0.4"/>
+                    </svg>
+                </span>
+                <span class="divider-line"></span>
+            </div>
+
+            <div class="content-block">
+                <h3>Easier to Digest</h3>
+                <p>Through slow fermentation, wild yeast and beneficial bacteria begin breaking down gluten and complex starches before the bread ever reaches your oven.</p>
+                <p style="margin-top: 0.5rem;">Many people find sourdough feels lighter and easier on the stomach compared to conventional bread.</p>
+            </div>
+
+            <div class="divider">
+                <span class="divider-line"></span>
+                <span class="divider-leaf">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 2 C9 5, 12 6, 14 5 C12 7, 11 9, 12 11 C10 9, 8 8, 8 8 C8 8, 6 9, 4 11 C5 9, 4 7, 2 5 C4 6, 7 5, 8 2Z" fill="#c5a55a" opacity="0.4"/>
+                    </svg>
+                </span>
+                <span class="divider-line"></span>
+            </div>
+
+            <div class="content-block">
+                <h3>Balanced Energy</h3>
+                <p>Because sourdough ferments slowly, it has a lower glycemic impact than standard yeast bread. That means steadier energy and less of the crash that can follow highly processed breads.</p>
+            </div>
+
+            <div class="divider">
+                <span class="divider-line"></span>
+                <span class="divider-leaf">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 2 C9 5, 12 6, 14 5 C12 7, 11 9, 12 11 C10 9, 8 8, 8 8 C8 8, 6 9, 4 11 C5 9, 4 7, 2 5 C4 6, 7 5, 8 2Z" fill="#c5a55a" opacity="0.4"/>
+                    </svg>
+                </span>
+                <span class="divider-line"></span>
+            </div>
+
+            <div class="content-block">
+                <h3>Better Flavor</h3>
+                <p>Long fermentation develops depth and complexity you simply can't rush.</p>
+                <p style="margin-top: 0.5rem;">The result: a crisp crust, a tender crumb, and that subtle tang that makes real sourdough unforgettable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ Image Banner ═══════ -->
+    <div class="image-banner image-banner-short">
+        <img src="https://images.unsplash.com/photo-1585478259844-06d7b756b082?w=1400&q=80&fit=crop&crop=center" alt="Rustic sourdough loaf with beautiful golden crust" loading="lazy">
+    </div>
+
+    <!-- ═══════ Products ═══════ -->
+    <section class="section products">
+        <div class="section-inner" style="max-width: 820px;">
+            <h2 class="section-title">What We Bake</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>Sourdough Bagels</h3>
+                    <span class="label">Ingredients</span>
+                    <ul>
+                        <li>Active sourdough starter</li>
+                        <li>King Arthur's organic bread flour</li>
+                        <li>Sea salt</li>
+                        <li>Organic honey</li>
+                        <li>Water</li>
+                        <li>Toppings</li>
+                    </ul>
+                    <p class="freshness">Best enjoyed within a few days. Slice &amp; freeze for longer freshness.</p>
+                </div>
+                <div class="product-card">
+                    <h3>Sourdough Loaf</h3>
+                    <span class="label">Ingredients</span>
+                    <ul>
+                        <li>Active sourdough starter</li>
+                        <li>King Arthur's organic bread flour</li>
+                        <li>Sea salt</li>
+                        <li>Water</li>
+                    </ul>
+                    <p class="freshness">Best enjoyed within a few days. Slice &amp; freeze for longer freshness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ Image Banner ═══════ -->
+    <div class="image-banner image-banner-short">
+        <img src="https://images.unsplash.com/photo-1590301157172-7ba48dd1c2b2?w=1400&q=80&fit=crop&crop=center" alt="Hands holding a freshly baked artisan sourdough loaf" loading="lazy">
+    </div>
+
+    <!-- ═══════ More Than Bread ═══════ -->
+    <section class="section ethos">
+        <div class="section-inner">
+            <h2 class="section-title">More Than Bread</h2>
+            <p style="margin-top: 1.5rem;">
+                Sourdough isn't just bread &mdash; it's a return to traditional baking.<br>
+                <span class="poetic-line">It's patience.</span>
+                <span class="poetic-line">It's craftsmanship.</span>
+                <span class="poetic-line">It's quality over shortcuts.</span>
+            </p>
+            <p class="closing">Every loaf is naturally leavened and thoughtfully made, from start to finish.</p>
+        </div>
+    </section>
+
+    <!-- ═══════ About ═══════ -->
+    <section class="section about">
+        <div class="section-inner" style="max-width: 820px;">
+            <h2 class="section-title">Meet the Baker</h2>
+            <p class="section-lead">The heart behind Bloom &amp; Loaf</p>
+            <div class="about-layout">
+                <div class="about-image">
+                    <img src="alyson.jpg" alt="Alyson Truong, founder of Bloom and Loaf">
+                </div>
+                <div class="about-text">
+                    <h3>Alyson Truong</h3>
+                    <span class="about-role">Founder &amp; Baker</span>
+                    <p>For Alyson, it all started in the garden. What began as a love of growing things &mdash; nurturing seeds into blooms, tending soil with patience and care &mdash; quietly found its way into the kitchen. The same hands that coax flowers from the earth now shape dough, feed starters, and score loaves by hand.</p>
+                    <p>Sourdough felt like a natural extension of that love: something living, something slow, something that rewards attention and care. When she's not elbow-deep in flour, you'll likely find her in the garden, dreaming up new recipes, or being followed around by a very enthusiastic golden retriever.</p>
+                    <p>Bloom &amp; Loaf is where her two passions meet &mdash; flowers and fermentation, patience and craft, all baked into every loaf she makes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ Footer ═══════ -->
+    <footer class="footer">
+        <p class="footer-brand">Bloom <span class="ampersand">&amp;</span> Loaf</p>
+        <p class="footer-tagline">Artisan Sourdough<span style="margin: 0 0.5em; opacity: 0.4;">&middot;</span>Small Batch</p>
+        <div class="footer-links">
+            <a href="https://www.bloomandloaf.com">www.bloomandloaf.com</a>
+            <a href="mailto:bloomandloaf@gmail.com">bloomandloaf@gmail.com</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Bloom &amp; Loaf. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
