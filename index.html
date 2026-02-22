@@ -255,9 +255,24 @@
             margin-top: 2rem;
         }
 
+        .product-card-featured {
+            grid-column: 1 / -1;
+        }
+
+        .product-card-featured .card-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
         @media (max-width: 640px) {
             .product-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .product-card-featured .card-columns {
+                grid-template-columns: 1fr;
+                gap: 0;
             }
         }
 
@@ -334,6 +349,28 @@
             border-top: 1px solid var(--cream-dark);
             padding-top: 1rem;
             margin-top: 0.5rem;
+        }
+
+        .product-card .price {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--green-deep);
+            margin-top: 1rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--cream-dark);
+        }
+
+        .product-card .price span {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .product-card-compact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         /* ─── More Than Bread ─── */
@@ -759,17 +796,34 @@
         <div class="section-inner" style="max-width: 820px;">
             <h2 class="section-title">What We Bake</h2>
             <div class="product-grid">
-                <div class="product-card">
+                <div class="product-card product-card-featured">
                     <h3>Sourdough Bagels</h3>
-                    <span class="label">Ingredients</span>
-                    <ul>
-                        <li>Active sourdough starter</li>
-                        <li>King Arthur's organic bread flour</li>
-                        <li>Sea salt</li>
-                        <li>Organic honey</li>
-                        <li>Water</li>
-                        <li>Toppings</li>
-                    </ul>
+                    <div class="card-columns">
+                        <div>
+                            <span class="label">Ingredients</span>
+                            <ul>
+                                <li>Active sourdough starter</li>
+                                <li>King Arthur's organic bread flour</li>
+                                <li>Sea salt</li>
+                                <li>Organic honey</li>
+                                <li>Water</li>
+                                <li>Toppings</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span class="label">Flavors</span>
+                            <ul>
+                                <li>Plain</li>
+                                <li>Salt</li>
+                                <li>Everything</li>
+                                <li>Garlic &amp; Herb</li>
+                                <li>Onion</li>
+                                <li>Cinnamon Sugar</li>
+                                <li>Sesame</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="price"><span>8 for $10</span></p>
                     <p class="freshness">Best enjoyed within a few days. Slice &amp; freeze for longer freshness.</p>
                 </div>
                 <div class="product-card">
@@ -781,7 +835,15 @@
                         <li>Sea salt</li>
                         <li>Water</li>
                     </ul>
+                    <p class="price"><span>$13</span></p>
                     <p class="freshness">Best enjoyed within a few days. Slice &amp; freeze for longer freshness.</p>
+                </div>
+                <div class="product-card product-card-compact">
+                    <h3>Sourdough Brown Butter Espresso Chocolate Chunk Cookies</h3>
+                    <p class="price">
+                        <span>6 for $12</span>
+                        <span>12 for $20</span>
+                    </p>
                 </div>
             </div>
         </div>
