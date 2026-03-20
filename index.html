@@ -1237,8 +1237,8 @@
                 <!-- Bagels -->
                 <div class="order-group">
                     <h3>Sourdough Bagels</h3>
-                    <span class="order-price-label">$5 per 4 &middot; $10 per 8</span>
-                    <p class="bagel-instruction">Select flavors in multiples of 4. Minimum order: 8 bagels.</p>
+                    <span class="order-price-label">$12 per 8</span>
+                    <p class="bagel-instruction">Select flavors in multiples of 4. Total must be a multiple of 8 (8, 16, 24, etc.).</p>
                     <div class="bagel-grid">
                         <div class="bagel-flavor-row" data-flavor="plain">
                             <span class="flavor-name">Plain</span>
@@ -1322,7 +1322,7 @@
                         Total bagels: <strong id="bagel-total-count">0</strong>
                     </div>
                     <div class="bagel-error" id="bagel-error" hidden>
-                        Minimum 8 bagels required (<span id="bagels-needed"></span> more needed)
+                        Bagels must be ordered in multiples of 8 (<span id="bagels-needed"></span> more needed to reach <span id="bagels-next-target"></span>)
                     </div>
                 </div>
 
@@ -1436,7 +1436,7 @@
             cookies6: 12,
             cookies12: 20
         };
-        const bagelPricePer4 = 5;
+        const bagelPricePer8 = 12;
 
         const bagelFlavors = ['bagel-plain','bagel-salt','bagel-everything','bagel-garlicherb','bagel-onion','bagel-cinnamonsugar','bagel-sesame'];
 
@@ -1461,8 +1461,10 @@
             const errorEl = document.getElementById('bagel-error');
             const neededEl = document.getElementById('bagels-needed');
 
-            if (total > 0 && total < 8) {
-                neededEl.textContent = 8 - total;
+            if (total > 0 && total % 8 !== 0) {
+                const next8 = Math.ceil(total / 8) * 8;
+                neededEl.textContent = next8 - total;
+                document.getElementById('bagels-next-target').textContent = next8;
                 errorEl.hidden = false;
                 return false;
             }
@@ -1493,7 +1495,7 @@
 
             const totalBagels = getTotalBagels();
             if (totalBagels > 0) {
-                const sub = (totalBagels / 4) * bagelPricePer4;
+                const sub = (totalBagels / 8) * bagelPricePer8;
                 lines.push({ label: `Sourdough Bagels × ${totalBagels}`, price: sub });
                 total += sub;
             }
@@ -1531,7 +1533,7 @@
 
             // Validate bagels
             if (!validateBagels()) {
-                showStatus('Please fix your bagel selection — minimum 8 bagels required.', 'error');
+                showStatus('Please fix your bagel selection — total must be a multiple of 8.', 'error');
                 return;
             }
 
@@ -1605,7 +1607,7 @@
             let total = quantities.loaves * prices.loaves;
             total += quantities.cookies6 * prices.cookies6;
             total += quantities.cookies12 * prices.cookies12;
-            total += (getTotalBagels() / 4) * bagelPricePer4;
+            total += (getTotalBagels() / 8) * bagelPricePer8;
             return total;
         }
 
